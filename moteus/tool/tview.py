@@ -184,7 +184,7 @@ class FdcanUsbStream(StreamBase):
                 (0x8000 if wait_for_response else 0x0) | self._destination_id,
                 ''.join(['{:02x}'.format(x) for x in payload]))
             .encode('latin1'))
-
+		print("can send {:x} {}\n".format((0x8000 if wait_for_response else 0x0) | self._destination_id,''.join(['{:02x}'.format(x) for x in payload])).encode('latin1'))
         try:
             self._stream.poll()
             self._stream.timeout = 0.10
